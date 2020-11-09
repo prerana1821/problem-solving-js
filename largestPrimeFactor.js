@@ -24,6 +24,8 @@ function largestPrimeFactor(num) {
 
 console.log(largestPrimeFactor(13195));
 
+// Output = 29
+
 // for (let i = 1; i <= num; i++) {
 //     count = 0;
 //     for (let j = 1; j <= i; j++) {
