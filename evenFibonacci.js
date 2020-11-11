@@ -20,3 +20,21 @@ function fibonacci(num) {
 fibonacci(200);
 
 // Output = 4613732
+
+// Optimal Solution
+// function fiboEvenSum(n) {
+//   let a = 1;
+//   let b = 2;
+//   let sum = b;
+
+//   while (b <= n) {
+//     let temp = a + b;
+//     a = b;
+//     b = temp;
+
+//     if (b % 2 == 0) {
+//       sum += b;
+//     }
+//   }
+//   return sum;
+// }
