@@ -1,11 +1,12 @@
 function isPrime(n) {
-    for (let i = 2; i <= Math.sqrt(n); i++) {
+    for (let i = 2; i < n; i++) {
         if (n % i == 0) {
             return false;
         }
     }
     return true;
 }
+// console.log(isPrime(10));
 
 function nthPrime(n) {
     let count = 0;
@@ -20,7 +21,7 @@ function nthPrime(n) {
     return inc - 1;
 }
 
-console.log(nthPrime(10001));
+console.log(nthPrime(6));
 
 // Output: 104743
 
