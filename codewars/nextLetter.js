@@ -18,22 +18,6 @@ function nextLetter(string) {
     return result;
 }
 
-// function nextLetter(str) {
-//     const letters = 'abcdefghijklmnopqrstuvwxyz';
-//     return str.split('').map((letter) => {
-//         if (letter.indexOf(letters.toLowerCase()) > 0) {
-//             if (letter === letter.toUpperCase() && letter === 'Z') {
-//                 return 'A';
-//             } else if (letter === letter.toUpperCase()) {
-//                 return letter[letter.indexOf(letter.toLowerCase()) + 1].toUpperCase();
-//             } else if (letter === letter.toLowerCase() && letter === 'a') {
-//                 return 'z';
-//             } else if (letter === letter.toLowerCase()) {
-//                 return letter[letter.indexOf(letter.toLowerCase()) + 1].toLowerCase();
-//             }
-//         } else return letter;
-//     }).join('');
-// }
 
 console.log(nextLetter('Hello '));
 
