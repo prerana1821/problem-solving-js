@@ -17,8 +17,6 @@ function nextLetter(string) {
     }
     return result;
 }
-
-
 console.log(nextLetter('Hello '));
 
 // function nextChar(c) {

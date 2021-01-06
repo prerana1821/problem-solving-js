@@ -10,3 +10,5 @@ function findSingleNumber(array) {
 
 // console.log(findSingleNumber([2, 2, 2, 3, 4, 4, 4]));
 findSingleNumber([2, 2, 2, 3, 4, 4, 4]);
+
+//not working
