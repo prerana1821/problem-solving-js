@@ -43,12 +43,12 @@ var twoSum = function(num, target) {
 
 console.log(twoSum([2, 7, 11, 15], 9));
 
-var twoSum = function(numbers, target) {
-    const object = {};
-    for (let i = 0; i < numbers.length; i++) {
-        if (object.hasOwnProperty(target - numbers[i])) {
-            return [object[target - numbers[i]] + 1, i + 1];
-        }
-        object[numbers[i]] = i;
-    }
-};
+// var twoSum = function(numbers, target) {
+//     const object = {};
+//     for (let i = 0; i < numbers.length; i++) {
+//         if (object.hasOwnProperty(target - numbers[i])) {
+//             return [object[target - numbers[i]] + 1, i + 1];
+//         }
+//         object[numbers[i]] = i;
+//     }
+// };
