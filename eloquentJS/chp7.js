@@ -51,17 +51,86 @@ let first = new VillageState(
     [{ place: "Post Office", address: "Alice's House" }]
 );
 let next = first.move("Alice's House");
-let next2 = first.move("Daria's House");
-let next3 = first.move("Marketplace");
-console.log(next.place);
-console.log(next2.place);
-console.log(next3.place);
-// console.log(next4.place);
-// → Alice's House
-console.log(next.parcels);
-console.log(next2.parcels);
-console.log(next3.parcels);
-// console.log(next4.parcels);
-// → []
-console.log(first.place);
-// → Post Office
+// let next2 = first.move("Daria's House");
+// let next3 = first.move("Marketplace");
+// console.log(next.place);
+// console.log(next2.place);
+// console.log(next3.place);
+// // console.log(next4.place);
+// // → Alice's House
+// console.log(next.parcels);
+// console.log(next2.parcels);
+// console.log(next3.parcels);
+// // console.log(next4.parcels);
+// // → []
+// console.log(first.place);
+// // → Post Office
+
+function runRobot(state, robot, memory) {
+    for (let turn = 0; ; turn++) {
+        if (state.parcels.length == 0) {
+            console.log(`Done in ${turn} turns`);
+            break;
+        }
+        let action = robot(state, memory);
+        state = state.move(action.direction);
+        memory = action.memory;
+        console.log(`Moved to ${action.direction}`);
+    }
+}
+
+function randomPick(array) {
+    let choice = Math.floor(Math.random() * array.length);
+    return array[choice];
+}
+
+function randomRobot(state) {
+    return { direction: randomPick(roadGraph[state.place]) };
+}
+
+VillageState.random = function (parcelCount = 5) {
+    let parcels = [];
+    for (let i = 0; i < parcelCount; i++) {
+        let address = randomPick(Object.keys(roadGraph));
+        let place;
+        do {
+            place = randomPick(Object.keys(roadGraph));
+        } while (place == address);
+        parcels.push({ place, address });
+    }
+    return new VillageState("Post Office", parcels);
+};
+let result = runRobot(VillageState.random(), randomRobot);
+console.log(result);
+// → Moved to Marketplace
+// → Moved to Town Hall
+// → …
+// → Done in 63 turns
+
+function findRoute(graph, from, to) {
+  let work = [{at: from, route: []}];
+  for (let i = 0; i < work.length; i++) {
+    let {at, route} = work[i];
+    for (let place of graph[at]) {
+      if (place == to) return route.concat(place);
+      if (!work.some(w => w.at == place)) {
+        work.push({at: place, route: route.concat(place)});
+      }
+    }
+  }
+}
+
+function goalOrientedRobot({place, parcels}, route) {
+  if (route.length == 0) {
+    let parcel = parcels[0];
+    if (parcel.place != place) {
+      route = findRoute(roadGraph, place, parcel.place);
+    } else {
+      route = findRoute(roadGraph, place, parcel.address);
+    }
+  }
+  return {direction: route[0], memory: route.slice(1)};
+}
+
+runRobot(VillageState.random(),
+                  goalOrientedRobot, []);
