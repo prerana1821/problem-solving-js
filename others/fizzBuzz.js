@@ -1,21 +1,26 @@
-for (let i = 1; i <= 100; i++) {
-    // console.log(i);
-    if (i % 3 === 0) {
-        if (i % 5 === 0 && i % 3 === 0) {
-            console.log("FizzBuzz");
+
+function fizzBuzz(n) {
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0) {
+            if (i % 5 === 0 && i % 3 === 0) {
+                return "FizzBuzz";
+            } else {
+                return "Fizz";
+            }
+        } else if (i % 5 === 0 && i % 3 !== 0) {
+            if (i % 5 === 0 && i % 3 === 0) {
+                return "FizzBuzz";
+            } else {
+                return "Buzz";
+            }
         } else {
-            console.log("Fizz");
+            return i;
         }
-    } else if (i % 5 === 0 && i % 3 !== 0) {
-        if (i % 5 === 0 && i % 3 === 0) {
-            console.log("FizzBuzz");
-        } else {
-            console.log("Buzz");
-        }
-    } else {
-        console.log(i);
     }
+
 }
+
+console.log(fizzBuzz(15));
 
 // for (let i = 1; i <= 50; i++) {
 //     if (i % 5 === 0 && i % 3 !== 0) {

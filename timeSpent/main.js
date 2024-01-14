@@ -12,6 +12,8 @@ function timerHandler() {
   document.getElementById("seconds").innerHTML = secondsToHms(count);
 }
 
+console.log(window.location.origin);
+
 // window.addEventListener("load", getTime);
 
 console.log({ doc: document.visibilityState });
@@ -68,3 +70,20 @@ function secondsToHms(d) {
     ("0" + h).slice(-2) + ":" + ("0" + m).slice(-2) + ":" + ("0" + s).slice(-2)
   );
 }
+
+// https://www.samanthaming.com/tidbits/86-window-location-cheatsheet/
+
+
+// function timeSpent() {
+//   var startTime = new Date();
+//   var endTime = new Date();
+//   var timeSpent = endTime - startTime;
+//   return timeSpent;
+// }
+
+// https://stackoverflow.com/questions/41306943/measure-time-spent-by-a-user-during-a-website-visit
+
+
+
+
+
