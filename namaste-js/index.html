@@ -4,9 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        /* background: linear-gradient(to bottom, #5b21b6, #1e40af); */
+        background: linear-gradient(-45deg, #ffc796 0%, #ff6b95 100%);
+        color: #fff;
+      }
+
+      h1 {
+        font-size: 110px;
+      }
+    </style>
   </head>
-  <body>
-    Learn Hoisting
+  <body class="container">
+    <h1>Closures</h1>
   </body>
-  <script src="./hoisting.js"></script>
+  <!-- <script src="./hoisting.js"></script> -->
+  <!-- <script src="./scope.js"></script> -->
+  <!-- <script src="./block-scope.js"></script> -->
+  <script src="./closures.js"></script>
 </html>
