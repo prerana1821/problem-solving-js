@@ -1,19 +1,19 @@
-function deeperExample() {
-  let outerValue1 = 900;
+// function deeperExample() {
+//   let outerValue1 = 900;
 
-  return function () {
-    let outerValue2 = 7;
+//   return function () {
+//     let outerValue2 = 7;
 
-    function innerFunction() {
-      console.log(outerValue2, outerValue1);
-    }
+//     function innerFunction() {
+//       console.log(outerValue2, outerValue1);
+//     }
 
-    innerFunction();
-  };
-}
+//     innerFunction();
+//   };
+// }
 
-const deepClosure = deeperExample();
-deepClosure(); // Output: 7 900
+// const deepClosure = deeperExample();
+// deepClosure(); // Output: 7 900
 
 // function createCounter() {
 //   let count = 0;
@@ -96,3 +96,18 @@ deepClosure(); // Output: 7 900
 //   y();
 // }
 // x();
+
+function x(a) {
+  function y(b) {
+    function z(c) {
+      console.log(a, b, c);
+      return a + b + c;
+    }
+    return z;
+  }
+  return y;
+}
+
+let a = x(10);
+let c = a(20);
+let b = c(30);
