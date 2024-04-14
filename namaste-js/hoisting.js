@@ -73,18 +73,63 @@
 // console.log("After function declaration - magicFunction:", magicFunction);
 // // Output: After function declaration - magicFunction: function magicFunction() { console.log("Magic in action!"); }
 
-console.log(
-  "Before arrow function declaration - arrowFunction:",
-  arrowFunction
-);
+// console.log(
+//   "Before arrow function declaration - arrowFunction:",
+//   arrowFunction
+// );
 // Output: Before arrow function declaration - arrowFunction: undefined
 
-arrowFunction();
-// Output: Uncaught TypeError: arrowFunction is not a function
+// arrowFunction();
+// // Output: Uncaught TypeError: arrowFunction is not a function
 
-let arrowFunction = () => {
-  console.log("Arrow function magic!");
-};
+// let arrowFunction = () => {
+//   console.log("Arrow function magic!");
+// };
 
-console.log("After arrow function declaration - arrowFunction:", arrowFunction);
-// Output: After arrow function declaration - arrowFunction: () => { console.log("Arrow function magic!"); }
+// console.log("After arrow function declaration - arrowFunction:", arrowFunction);
+// // Output: After arrow function declaration - arrowFunction: () => { console.log("Arrow function magic!"); }
+
+// example 1
+// console.log(a); // What will this output?
+// var a = 5;
+
+// // example 2
+// foo(); // What will this output?
+// function foo() {
+//   console.log("Hello, world!");
+// }
+
+// // example 3
+// var b = 10;
+// function bar() {
+//   console.log(b); // What will this output?
+//   var b = 20;
+// }
+// bar();
+
+// console.log(c); // What will this output?
+// let c = 15;
+
+// console.log(e()); // What will this output?
+// var e = function () {
+//   return "Hello, world!";
+// };
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(function () {
+    console.log(i); // What will this output?
+  }, 100);
+}
+
+// console.log(getY()); // What will this output?
+// const getY = () => {
+//   return 20;
+// };
+
+// function outerFunc() {
+//   innerFunc(); // What will this output?
+//   function innerFunc() {
+//     console.log("Inside inner function");
+//   }
+// }
+// outerFunc();

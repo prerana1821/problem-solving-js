@@ -97,17 +97,50 @@
 // }
 // x();
 
-function x(a) {
-  function y(b) {
-    function z(c) {
-      console.log(a, b, c);
-      return a + b + c;
+// function x(a) {
+//   function y(b) {
+//     function z(c) {
+//       console.log(a, b, c);
+//       return a + b + c;
+//     }
+//     return z;
+//   }
+//   return y;
+// }
+
+// let a = x(10);
+// let c = a(20);
+// let b = c(30);
+
+// function x() {
+//   for (let i = 0; i <= 5; i++) {
+//     setTimeout(() => {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+//   console.log("Hello World");
+// }
+
+// function x() {
+//   for (var i = 1; i <= 5; i++) {
+//     setTimeout(function () {
+//       console.log(i);
+//     }, i * 1000);
+//   }
+//   console.log("Namaste Javascript");
+// }
+// x();
+
+function x() {
+  for (var i = 0; i <= 5; i++) {
+    function close(i) {
+      setTimeout(() => {
+        console.log(i);
+      }, i * 1000);
     }
-    return z;
+    close(i);
   }
-  return y;
+  console.log("Hello");
 }
 
-let a = x(10);
-let c = a(20);
-let b = c(30);
+x();

@@ -59,6 +59,7 @@ function task1(time) {
     }, time);
   });
 }
+
 const taskList1 = [task1(1000), task1(5000), task1(3000)];
 //run promise.all
 myPromiseAll(taskList1)
@@ -67,3 +68,25 @@ myPromiseAll(taskList1)
   })
   .catch(console.error);
 // Output: "Rejected";
+
+function myPromiseAll2(promiseArray) {
+  let output = [];
+  let promiseCount = 0;
+
+  return new Promise((resolve, reject) => {
+    promiseArray.forEach((item, index) => {
+      item
+        .then((result) => {
+          output[index] = result;
+          promiseCount++;
+
+          if (promiseCount === promiseArray.length) {
+            resolve(output);
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  });
+}
