@@ -12,22 +12,27 @@
 
 */
 
-function myPromiseAny(list) {
-  const promiseErrors = new Array(list.length);
+function myPromiseAny(promises) {
+  const promiseErrors = new Array(promises.length);
   let count = 0;
 
   return new Promise(function (resolve, reject) {
-    list.forEach((promise) => {
+    promises.forEach((promise, index) => {
       promise
         .then((value) => {
           resolve(value);
         })
         .catch((error) => {
-          promiseErrors[count] = error;
+          promiseErrors[index] = error;
           count += 1;
 
           if (count === promiseErrors.length) {
-            reject(promiseErrors);
+            reject(
+              new AggregateError(
+                "No Promise in Promise.any was resolved",
+                promiseErrors
+              )
+            );
           }
         });
     });
@@ -43,7 +48,7 @@ function myPromiseAny(list) {
 //       Promise.resolve(promise) //  when dealing with values that might be promises or non-promises.
 //         .then(resolve)
 //         .catch((error) => {
-//           promiseErrors[count] = error;
+//           promiseErrors[index] = error;
 //           count += 1;
 
 //           if (count === promiseErrors.length) {

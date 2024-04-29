@@ -1,7 +1,5 @@
 const mapSeries = (array, callback) => {
   return new Promise((resolve, reject) => {
-    let output = [];
-
     const finalResult = array.reduce((acc, current) => {
       return acc.then((value) => {
         return new Promise((resolve, reject) => {
