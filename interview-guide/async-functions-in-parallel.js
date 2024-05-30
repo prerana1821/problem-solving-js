@@ -43,3 +43,29 @@ asyncParallel(taskList, (result) => {
   console.log("results", result);
 });
 // Output: "results"[(1, 6, 7, 7, 9, 9)]; // [object Array] (6)
+
+function parallel(funcs) {
+  return function (callback, data) {
+    let results = new Array(funcs.length);
+    let completed = 0;
+    let hasError = false;
+
+    funcs.forEach((task, index) => {
+      task((error, result) => {
+        if (hasError) return;
+
+        if (error) {
+          hasError = true;
+          callback(error, undefined);
+        } else {
+          results[index] = result;
+          completed++;
+
+          if (completed === funcs.length) {
+            callback(undefined, results);
+          }
+        }
+      }, data);
+    });
+  };
+}

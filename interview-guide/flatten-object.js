@@ -15,6 +15,18 @@ const response = {
   },
 };
 
+const obj = {
+  A: "12",
+  B: 23,
+  C: {
+    P: 23,
+    O: {
+      L: 56,
+    },
+    Q: [1, 2],
+  },
+};
+
 const flattenObj = (obj) => {
   return Object.keys(obj).reduce((acc, key) => {
     if (typeof obj[key] === "object" && obj[key] !== null) {
@@ -30,3 +42,4 @@ const flattenObj = (obj) => {
 };
 
 console.log(flattenObj(response));
+console.log(flattenObj(obj));
